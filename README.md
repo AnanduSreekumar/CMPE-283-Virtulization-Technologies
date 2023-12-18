@@ -1,21 +1,31 @@
 -**University Name: [San Jose State University](http://www.sjsu.edu/)**  
 -**Course: [Virtualization Technologies](http://info.sjsu.edu/web-dbgen/catalog/courses/CMPE283.html)**  
 -**Professor Mike Larkin**  
--Students:
+
+
+### Team Contribution:
 1. **[Anandu Sreekumar](https://github.com/AnanduSreekumar)**
+
+Anandu conducted research on nested virtualization in VMWare and obtained the MSR commands from the SDM manual. I modified CMPE-283-1.c and created functions IA32_VMX_PROCBASED_CTLS, IA32_VMX_PROCBASED_CTLS2, IA32_VMX_EXIT_CTLS. Since my system was crashing, I met with Jeswanth in the library and connected over Zoom to implement the module on Jeswanth’s laptop as described in the following steps.
+
 2. **[Jeswanth Vadlamudi](https://github.com/jeswanthv)**
+
+Jeswanth created VMWare with help of Anandu's research and forcked the repo and cloned into the VMWare. Jeswanth build the kernel along with Anandu and Modified CMPE-283-1.c and created functions IA32_VMX_ENTRY_CTLS,IA32_VMX_PROCBASED_CTLS3
+
+
+[JESWANTH's LINUX FORCKED REPOSITORY  ](https://github.com/jeswanthv/linux)
 
 ###  Assignment 1
     
-1. Homepage  
-<img align="center" src="https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/blob/main/Assignment-1/Screenshots/assignment_1.jpeg" alt="Homepage" height="305" width="620" />
-
-2. New User Registration   
-<img align="center" src="https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/blob/main/Assignment-1/Screenshots/assignment_1_2.jpeg" alt="Homepage" height="305" width="620" />
+[GO TO ASSIGNMENT 1  TO SEE STEP BY STEP INFO](https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/blob/main/Assignment-1/README.md)
 
 ###  Assignment 2
 
+[GO TO ASSIGNMENT 2 ](https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/blob/main/Assignment-2/README.md)
+
 ###  Assignment 3
+
+[GO TO ASSIGNMENT 3 ](https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/blob/main/Assignment-3/README.md)
 
 ## License
 
