@@ -6395,9 +6395,9 @@ void dump_vmcs(struct kvm_vcpu *vcpu)
 }
 
 extern u32 total_exits;
-extern u64 total_time_processing_exits;
-extern u64 exit_processing_times[76];
-extern u64 exit_counts[76];
+extern u64 total_time_required_to_proces_exits;
+extern u64 ext_proc_tie[76];
+extern u64 ext_cnt[76];
 /*
  * The guest has exited.  See if we can fix it or if we need userspace
  * assistance.
@@ -6414,7 +6414,7 @@ static int __vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 
         basic_exit_reason = (u16)to_vmx(vcpu)->exit_reason.basic;
         if(basic_exit_reason < 77){
-                exit_counts[basic_exit_reason]++;
+                ext_cnt[basic_exit_reason]++;
         }
 
         /*
@@ -6573,8 +6573,8 @@ static int __vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
                                                 kvm_vmx_max_exit_handlers);
         if (!kvm_vmx_exit_handlers[exit_handler_index])
                 goto unexpected_vmexit;
-        total_time_processing_exits = total_time_processing_exits + (rdtsc() - enter_rdtsc);
-        exit_processing_times[basic_exit_reason] = exit_processing_times[basic_exit_reason] + (rdtsc() - enter_rdtsc);
+        total_time_required_to_proces_exits = total_time_required_to_proces_exits + (rdtsc() - enter_rdtsc);
+        ext_proc_tie[basic_exit_reason] = ext_proc_tie[basic_exit_reason] + (rdtsc() - enter_rdtsc);
 
         return kvm_vmx_exit_handlers[exit_handler_index](vcpu);
 
