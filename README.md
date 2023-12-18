@@ -1,5 +1,5 @@
 -**University Name: [San Jose State University](http://www.sjsu.edu/)**  
--**Course: [Virtualization Technologies](http://info.sjsu.edu/web-dbgen/catalog/courses/CMPE283.html)**  
+-**Course: Virtualization Technologies**  
 -**Professor Mike Larkin**  
 
 

@@ -28,7 +28,68 @@ struct capability_info {
 	const char *name;
 };
 
+/*
+ * IA32_VMX_ENTRY_CTLS capabilities
+ *  See SDM volume 3C, section 25.8.1
+ */
+struct capability_info vmentry_controls[14] =
+{
+	{ 2, "Load debug controls" },
+	{ 9, "IA-32e mode guest" },
+	{ 10, "Entry to SMM" },
+	{ 11, "Deactivate dual-monitor treatment" },
+	{ 13, "Load IA32_PERF_GLOBAL_CTRL" },
+	{ 14, "Load IA32_PAT" },
+	{ 15, "Load IA32_EFER" },
+	{ 16, "Load IA32_BNDCFGS" },
+	{ 17, "Conceal VMX from PT" },
+	{ 18, "Load IA32_RTIT_CTL" },
+        { 19, "Load UINV" },
+	{ 20, "Load CET state" },
+	{ 21, "Load guest IA32_LBR_CTL" },
+	{ 22, "Load PKRS" }
+};
 
+/*
+ * IA32_VMX_EXIT_CTLS capabilities
+ * See SDM volume 3C, section 25.7.1
+ */
+struct capability_info vmexit_controls[18] =
+{
+	{ 2, "Save debug controls" },
+	{ 9, "Host address space size" },
+	{ 12, "Load IA32_PERF_GLOBAL_CTRL" },
+	{ 15, "Acknowledge Interrupt on exit" },
+	{ 18, "Save IA32_PAT" },
+	{ 19, "Load IA32_PAT" },
+	{ 20, "Save IA32_EFER" },
+	{ 21, "Load IA32_EFER" },
+	{ 22, "Save VMX-preemption timer value" },
+	{ 23, "Clear IA32_BNDCFGS" },
+	{ 24, "Conceal VMX from PT" },
+	{ 25, "Clear IA32_RTIT_CTL" },
+	{ 26, "Clear IA32_LBR_CTL" },
+	{ 27, "Clear UNIV" },
+	{ 28, "Load CET state" },
+	{ 29, "Load PKRS" },
+	{ 30, "Save IA32_PREF_GLOBAL_CTL" },
+	{ 31, "Activate secondary controls" }
+};
+
+/*
+ * IA32_VMX_PROCBASED_CTLS3 capabilities
+ *  See SDM volume 3C, section 25.6.2
+ */
+ 
+ struct capability_info procbased3[6] =
+{
+	{ 0, "LOADIWKEY exiting" },
+	{ 1, "Enable HLAT" },
+	{ 2, "EPT paging-write control" },
+	{ 3, "Guest-paging verification" },
+	{ 4, "IPI virtualization" },
+	{ 7, "Virtualize IA32_SPEC_CTRL" }
+};
 
 /*
  * IA32_VMX_PROCBASED_CTLS2 capabilities
@@ -170,7 +231,21 @@ detect_vmx_features(void)
 	pr_info("Procbased 2 Controls MSR: 0x%llx\n",
 		(uint64_t)(lo | (uint64_t)hi << 32));
 	report_capability(procbased2, 9, lo, hi);
-	
+	/* Procbased3 controls */
+	rdmsr(IA32_VMX_PROCBASED_CTLS3, lo, hi);
+	pr_info("Procbased 3 Controls MSR: 0x%llx\n",
+		(uint64_t)(lo | (uint64_t)hi << 32));
+	report_capability(procbased3, 9, lo, hi);
+	/* Vm Exit controls */
+	rdmsr(IA32_VMX_EXIT_CTLS, lo, hi);
+	pr_info("VM exit Controls MSR: 0x%llx\n",
+		(uint64_t)(lo | (uint64_t)hi << 32));
+	report_capability(vmexit_controls, 11, lo, hi);
+	/* Vm Entry controls */
+	rdmsr(IA32_VMX_ENTRY_CTLS, lo, hi);
+	pr_info("VM Entry Controls MSR: 0x%llx\n",
+		(uint64_t)(lo | (uint64_t)hi << 32));
+	report_capability(vmentry_controls, 9, lo, hi);
 }
 
 /*
