@@ -1,7 +1,7 @@
 Step 1 - Setup
 a. Anandu Created a VM Ware with nexted virtulization enabled 
 b. Followed the steps and recereted in Jeswanth Laptop
-c. Jeswaznth focked the linux kernel code
+c. Jeswanth forked the linux kernel code
 
 Step 2 - Building the kernel 
 a. Build the kernel with the updated version in the linux repo using make oldconfig and make -j 8 modules

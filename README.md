@@ -10,10 +10,10 @@ Anandu conducted research on nested virtualization in VMWare and obtained the MS
 
 2. **[Jeswanth Vadlamudi](https://github.com/jeswanthv)**
 
-Jeswanth created VMWare with help of Anandu's research and forcked the repo and cloned into the VMWare. Jeswanth build the kernel along with Anandu and Modified CMPE-283-1.c and created functions IA32_VMX_ENTRY_CTLS,IA32_VMX_PROCBASED_CTLS3
+Jeswanth created VMWare with help of Anandu's research and forked the repo and cloned into the VMWare. Jeswanth build the kernel along with Anandu and Modified CMPE-283-1.c and created functions IA32_VMX_ENTRY_CTLS,IA32_VMX_PROCBASED_CTLS3
 
 
-[JESWANTH's LINUX FORCKED REPOSITORY  ](https://github.com/jeswanthv/linux)
+[JESWANTH's LINUX FORKED REPOSITORY  ](https://github.com/jeswanthv/linux)
 
 ###  Assignment 1
     

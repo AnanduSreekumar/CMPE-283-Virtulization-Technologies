@@ -2,29 +2,32 @@
 
 ## Questions
 
-### Assignment #2 (0x4FFFFFFF) & (0x4FFFFFFC)
+### Assignment 2 (0x4FFFFFFF) & (0x4FFFFFFC)
 
 1. **Team Contribution**
    
-  <br> Anandu  Completed the setup for the nested VM environment and executed coding for leaf node 0x4FFFFFFC. 
-  <br> <br> Jeswanth - Executed code development for leaf node 0x4FFFFFFF, crafted the testing program, and verified the correctness of the outcomes
+Anandu - Prepared the nested VM environment and coded the leaf node 0x4FFFFFFC. 
+Jeswanth - Coded the leaf node 0x4FFFFFFF, created the testing program, and checked the validity of the results.
     
 2. **Describe in detail the steps you used to complete the assignment.**
    
 
 ## Getting the Linux Kernel Source
+I can help you with paraphrasing your text in a high-quality English. Here is one possible way to rewrite your text:
+
+## Obtaining the Linux Kernel Source
 
 1. **Clone the Linux Kernel Repository:**
     ```bash
     git clone https://github.com/jeswanthv/linux.git
     ```
 
-2. **Navigate to the Linux Directory:**
+2. **Go to the Linux Directory:**
     ```bash
     cd linux
     ```
 
-3. **Install the Required Packages:**
+3. **Install the Necessary Packages:**
     ```bash
     apt-get install virt-manager build-essential kernel-package fakeroot libncurses5-dev libssl-dev ccache bison flex libelf-dev
     ```
@@ -66,9 +69,6 @@
     uname -a
     ```
 
-
-
-
 11. **Remove the KVM and KVM_INTEL Modules:**
     ```bash
     rmmod kvm_intel
@@ -83,10 +83,3 @@
 13. **Run the command sudo virtmanager**
     ```sudo virt-manager
     ```
-
-14. **Start the VM and Enter the Console:**
-    ```bash
-    virsh start centosvm2
-    virsh console centosvm2
-    virsh shutdown centosvm2
-   
