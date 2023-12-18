@@ -8,10 +8,10 @@
 ### Screenshots:    
   
 1. Homepage  
-<img align="center" src="https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/Assignment-1/Screenshots/assignment_1.jpeg" alt="Homepage" height="405" width="720" />
+<img align="center" src="https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/blob/main/Assignment-1/Screenshots/assignment_1.jpeg" alt="Homepage" height="405" width="720" />
 
 2. New User Registration   
-<img align="center" src="https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/Assignment-1/Screenshots/assignment_1_2.jpeg" alt="Homepage" height="405" width="720" />
+<img align="center" src="https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/blob/main/Assignment-1/Screenshots/assignment_1_2.jpeg" alt="Homepage" height="405" width="720" />
 
 ## License
 
