@@ -5,13 +5,17 @@
 1. **[Anandu Sreekumar](https://github.com/AnanduSreekumar)**
 2. **[Jeswanth Vadlamudi](https://github.com/jeswanthv)**
 
-### Screenshots:    
-  
+###  Assignment 1
+    
 1. Homepage  
-<img align="center" src="https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/blob/main/Assignment-1/Screenshots/assignment_1.jpeg" alt="Homepage" height="405" width="720" />
+<img align="center" src="https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/blob/main/Assignment-1/Screenshots/assignment_1.jpeg" alt="Homepage" height="305" width="620" />
 
 2. New User Registration   
-<img align="center" src="https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/blob/main/Assignment-1/Screenshots/assignment_1_2.jpeg" alt="Homepage" height="405" width="720" />
+<img align="center" src="https://github.com/AnanduSreekumar/CMPE-283-Virtulization-Technologies/blob/main/Assignment-1/Screenshots/assignment_1_2.jpeg" alt="Homepage" height="305" width="620" />
+
+###  Assignment 2
+
+###  Assignment 3
 
 ## License
 
