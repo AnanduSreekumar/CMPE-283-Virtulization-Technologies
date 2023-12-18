@@ -1572,62 +1572,62 @@ EXPORT_SYMBOL(ext_cnt);
 
 int kvm_emulate_cpuid(struct kvm_vcpu *vcpu_ptr)
 {
-        u32 reg_eax, reg_ebx, reg_ecx, reg_edx;
+        u32 eax_rg, ebx_rg, ecx_rg, edx_rg;
 
         if (cpuid_fault_enabled(vcpu_ptr) && !kvm_require_cpl(vcpu_ptr, 0))
                 return 1;
 
-        reg_eax = kvm_rax_read(vcpu_ptr);
-        reg_ecx = kvm_rcx_read(vcpu_ptr);
+        eax_rg = kvm_rax_read(vcpu_ptr);
+        ecx_rg = kvm_rcx_read(vcpu_ptr);
 
-        if (reg_eax == 0x4FFFFFFF) {
-            reg_eax = total_exits;
-            reg_ebx = reg_ecx = reg_edx = 0;
+        if (eax_rg == 0x4FFFFFFF) {
+            eax_rg = total_exits;
+            ebx_rg = ecx_rg = edx_rg = 0;
             printk(KERN_INFO "VIR - CMPE 283 0x4FFFFFFF Total Exits count is equal to %d", total_exits);
-        } else if (reg_eax == 0x4FFFFFFD || reg_eax == 0x4FFFFFFC) {
-            if (reg_ecx < 0 || (reg_ecx > 35 && reg_ecx < 38) || (reg_ecx > 42 && reg_ecx < 71) || reg_ecx > 75) {
+        } else if (eax_rg == 0x4FFFFFFD || eax_rg == 0x4FFFFFFC) {
+            if (ecx_rg < 0 || (ecx_rg > 35 && ecx_rg < 38) || (ecx_rg > 42 && ecx_rg < 71) || ecx_rg > 75) {
                 printk(KERN_INFO "NOt able to find ");
-                reg_eax = reg_ebx = reg_ecx = 0;
-                reg_edx = 0xffffffff;
-            } else if ((reg_ecx >= 3 && reg_ecx <= 6) || (reg_ecx >= 11 && reg_ecx <= 17) || (reg_ecx >= 28 && reg_ecx <= 34) || (reg_ecx >= 51 && reg_ecx <= 75)) {
-                reg_eax = reg_ebx = reg_ecx = reg_edx = 0;
+                eax_rg = ebx_rg = ecx_rg = 0;
+                edx_rg = 0xffffffff;
+            } else if ((ecx_rg >= 3 && ecx_rg <= 6) || (ecx_rg >= 11 && ecx_rg <= 17) || (ecx_rg >= 28 && ecx_rg <= 34) || (ecx_rg >= 51 && ecx_rg <= 75)) {
+                eax_rg = ebx_rg = ecx_rg = edx_rg = 0;
             } else {
-                if (reg_eax == 0x4FFFFFFD) {
-                    reg_eax = ext_cnt[reg_ecx];
-                    printk(KERN_INFO "0x4FFFFFFD EXIT COUNT = %d, TOTAL EXITS =  %d", reg_ecx, reg_eax);
-                    reg_ebx = reg_ecx = reg_edx = 0;
+                if (eax_rg == 0x4FFFFFFD) {
+                    eax_rg = ext_cnt[ecx_rg];
+                    printk(KERN_INFO "0x4FFFFFFD EXIT COUNT = %d, TOTAL EXITS =  %d", ecx_rg, eax_rg);
+                    ebx_rg = ecx_rg = edx_rg = 0;
                     for (int i = 0; i <= 75; i++) {
                         printk(KERN_INFO "EXIT #%d, TOTAL EXITS: %lld", i, ext_cnt[i]);
                     }
                 } else {
-                    printk(KERN_INFO "EXIT NUMBER: %d", reg_ecx);
-                    u64 time_of_exit = ext_proc_tie[reg_ecx];
+                    printk(KERN_INFO "EXIT NUMBER: %d", ecx_rg);
+                    u64 time_of_exit = ext_proc_tie[ecx_rg];
                     u32 lower_exit_bits = (u32)time_of_exit;
                     u32 upper_exit_bits = time_of_exit >> 32;
-                    reg_eax = 0;
-                    reg_ebx = upper_exit_bits;
-                    reg_ecx = lower_exit_bits;
-                    reg_edx = 0;
-                    printk(KERN_INFO "0x4FFFFFFC TOTAL EXIT FOUND =%d, PROCESSING TIME TAKEN= %llu", reg_ecx, time_of_exit);
-                }E
+                    eax_rg = 0;
+                    ebx_rg = upper_exit_bits;
+                    ecx_rg = lower_exit_bits;
+                    edx_rg = 0;
+                    printk(KERN_INFO "0x4FFFFFFC TOTAL EXIT FOUND =%d, PROCESSING TIME TAKEN= %llu", ecx_rg, time_of_exit);
+                }
             }
-        } else if (reg_eax == 0x4FFFFFFE) {
+        } else if (eax_rg == 0x4FFFFFFE) {
             printk(KERN_INFO "0x4FFFFFFE Total time processing in all exits IS %llu", total_time_required_to_proces_exits);
             u32 lower_bits = (u32)total_time_required_to_proces_exits;
             u32 upper_bits = total_time_required_to_proces_exits >> 32;
-            reg_eax = 0;
-            reg_ebx = upper_bits;
-            reg_ecx = lower_bits;
-            reg_edx = 0;
+            eax_rg = 0;
+            ebx_rg = upper_bits;
+            ecx_rg = lower_bits;
+            edx_rg = 0;
         } else {
-            kvm_cpuid(vcpu_ptr, &reg_eax, &reg_ebx, &reg_ecx, &reg_edx, false);
+            kvm_cpuid(vcpu_ptr, &eax_rg, &ebx_rg, &ecx_rg, &edx_rg, false);
         }
 
 
-        kvm_rax_write(vcpu_ptr, reg_eax);
-        kvm_rbx_write(vcpu_ptr, reg_ebx);
-        kvm_rcx_write(vcpu_ptr, reg_ecx);
-        kvm_rdx_write(vcpu_ptr, reg_edx);
+        kvm_rax_write(vcpu_ptr, eax_rg);
+        kvm_rbx_write(vcpu_ptr, ebx_rg);
+        kvm_rcx_write(vcpu_ptr, ecx_rg);
+        kvm_rdx_write(vcpu_ptr, edx_rg);
         return kvm_skip_emulated_instruction(vcpu_ptr);
 }
 EXPORT_SYMBOL_GPL(kvm_emulate_cpuid);

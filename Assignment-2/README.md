@@ -6,17 +6,11 @@
 
 1. **Team Contribution**
    
-Anandu - Prepared the nested VM environment and coded the leaf node 0x4FFFFFFC. 
+Anandu - Prepared the nested VM environment and coded the leaf node 0x4FFFFFFC.<br>
 Jeswanth - Coded the leaf node 0x4FFFFFFF, created the testing program, and checked the validity of the results.
     
 2. **Describe in detail the steps you used to complete the assignment.**
    
-
-## Getting the Linux Kernel Source
-I can help you with paraphrasing your text in a high-quality English. Here is one possible way to rewrite your text:
-
-## Obtaining the Linux Kernel Source
-
 1. **Clone the Linux Kernel Repository:**
     ```bash
     git clone https://github.com/jeswanthv/linux.git
@@ -69,17 +63,20 @@ I can help you with paraphrasing your text in a high-quality English. Here is on
     uname -a
     ```
 
+
 11. **Remove the KVM and KVM_INTEL Modules:**
     ```bash
     rmmod kvm_intel
     rmmod kvm
     ```
+
 12. **Update the KVM and KVM_INTEL Modules:**
-  ```bash
+    ```bash
     modprobe kvm
     modprobe kvm_intel
     lsmod | grep kvm
     ```
+
 13. **Run the command sudo virtmanager**
     ```sudo virt-manager
     ```
